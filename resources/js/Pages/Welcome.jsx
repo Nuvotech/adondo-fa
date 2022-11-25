@@ -15,8 +15,8 @@ export default function Welcome(props) {
             <div className="max-w-[1440px] mx-auto bg-white">
                 <Head title="Welcome" />
                 <Header />
-                {/* <Home />
-            <PropertyDetails /> */}
+                <Home />
+                {/* <PropertyDetails /> */}
                 <Footer />
             </div>
         </>
