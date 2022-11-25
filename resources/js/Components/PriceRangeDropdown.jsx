@@ -18,11 +18,11 @@ const PriceRangeDropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
     const prices = [
         { value: "Price range (any)" },
-        { value: "R 2 500 - R 3 000" },
-        { value: "R 3 000 - R 3 500" },
-        { value: "R 3 500 - R 4 000" },
-        { value: "R 1 500 - R 2 000" },
-        { value: "R 2 000 - R 2 500" },
+        { value: "R 2500 - R 3000" },
+        { value: "R 3000 - R 3500" },
+        { value: "R 3500 - R 4000" },
+        { value: "R 1500 - R 2000" },
+        { value: "R 2000 - R 2500" },
     ];
     return (
         <Menu as="div" className="dropdown relative">
