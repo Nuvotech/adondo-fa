@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header className="py-6 mb-12 border-b">
             <div className="container mx-auto flex justify-between items-center">
-                <Link to="/">
+                <Link href="/" preserveState>
                     <img src={Logo} alt="" />
                 </Link>
                 <div className="flex items-center gap-6">
