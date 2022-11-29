@@ -19,23 +19,16 @@ const PropertyDetails = ({ id }) => {
 
     const { errors } = usePage().props;
 
+    const roomName = useRef();
+    const roomType = useRef();
+    const roomCountry = useRef();
+    const roomPrice = useRef();
     const customerName = useRef();
     const customerEmail = useRef();
     const customerPhone = useRef();
     const customerMessage = useRef();
 
-    const handleChange = () => {
-        // console.log(customerName);
-        console.log(customerName.current.value);
-        console.log(customerEmail.current.value);
-        console.log(customerPhone.current.value);
-        console.log(customerMessage.current.value);
-
-        // const customerName = customerName.current.value;
-        // const customerEmail = customerEmail.current.value;
-        // const customerPhone = customerPhone.current.value;
-        // const customerMessage = customerMessage.current.value;
-    };
+    const handleChange = () => {};
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -46,6 +39,10 @@ const PropertyDetails = ({ id }) => {
             return;
         }
         Inertia.post("/property/booking/", {
+            customerName: roomName.current.value,
+            customerName: roomType.current.value,
+            customerName: roomCountry.current.value,
+            customerName: roomPrice.current.value,
             customerName: customerName.current.value,
             customerEmail: customerEmail.current.value,
             customerPhone: customerPhone.current.value,
@@ -119,6 +116,26 @@ const PropertyDetails = ({ id }) => {
                                     className="flex flex-col gap-y-4"
                                     onSubmit={handleSubmit}
                                 >
+                                    <input
+                                        type="hidden"
+                                        value={house.name}
+                                        ref={roomName}
+                                    />
+                                    <input
+                                        type="hidden"
+                                        value={house.type}
+                                        ref={roomType}
+                                    />
+                                    <input
+                                        type="hidden"
+                                        value={house.country}
+                                        ref={roomCountry}
+                                    />
+                                    <input
+                                        type="hidden"
+                                        value={house.price}
+                                        ref={roomPrice}
+                                    />
                                     <input
                                         className="border border-gray-300 focus:border-adondoGreen-50 outline-none rounded w-full px-4 h-14 text-sm"
                                         type="text"

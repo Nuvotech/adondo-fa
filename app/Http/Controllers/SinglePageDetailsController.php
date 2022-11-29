@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BookingEnquiries;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
-class SinglePageDetails extends Controller
+class SinglePageDetailsController extends Controller
 {
     public function show(Request $request){
         // dd($request->all());
@@ -23,7 +25,9 @@ class SinglePageDetails extends Controller
 
         ]);
 
-        dd($data);
+        // dd($data);
+
+        Mail::to('booking@adondo-fa.com')->send(new BookingEnquiries($data));
 
 
         // dd(Request::only('customerName'));
