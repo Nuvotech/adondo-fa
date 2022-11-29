@@ -13,4 +13,19 @@ class SinglePageDetails extends Controller
             'id' => $request->id
         ]);
     }
+
+    public function store(Request $request){
+         $data = $request->validate([
+            'customerName' => ['required'],
+            'customerEmail' => ['email', 'max:50'],
+            'customerPhone' => ['required', 'min:10'],
+            'customerMessage' => ['max:120'],
+
+        ]);
+
+        dd($data);
+
+
+        // dd(Request::only('customerName'));
+    }
 }

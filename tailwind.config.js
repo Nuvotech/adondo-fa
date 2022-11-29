@@ -27,6 +27,14 @@ module.exports = {
         },
         extend: {
             colors: {
+                adondoGreen: {
+                    DEFAULT: "#03989E",
+                    50: "#03989E",
+                    100: "#008b8b",
+                },
+                adondoGray: {
+                    DEFAULT: "#606062",
+                },
                 primary: "#101828",
                 secondary: "#7F56D9",
             },

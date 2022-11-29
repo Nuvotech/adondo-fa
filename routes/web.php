@@ -30,6 +30,7 @@ Route::get('/', function () {
 //     return Inertia::render('PropertyDetails');
 // });
 Route::get('/property/details/', [SinglePageDetails::class,'show'])->name('pageDetails.show');
+Route::post('/property/booking/', [SinglePageDetails::class,'store'])->name('pageDetails.store');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

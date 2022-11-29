@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Link } from "@inertiajs/inertia-react";
-import Logo from "../../../public/assets/img/logo.svg";
+import Logo from "../../../public/assets/img/logo.png";
 
 const Header = () => {
     return (
@@ -12,7 +12,7 @@ const Header = () => {
                 </Link>
                 <div className="flex items-center gap-6">
                     <Link className="hover:text-violet-900">Log in</Link>
-                    <Link className="bg-violet-700 hover:bg-violet-800 text-white px-4 py-2 rounded-lg transition">
+                    <Link className="bg-[#03989E] hover:bg-violet-800 text-white px-4 py-2 rounded-lg transition">
                         {" "}
                         Sign up
                     </Link>

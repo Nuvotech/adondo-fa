@@ -1,5 +1,5 @@
-import React from "react";
-import { Head } from "@inertiajs/inertia-react";
+import React, { useRef } from "react";
+import { Head, usePage } from "@inertiajs/inertia-react";
 
 // import components
 import Header from "@/Components/Header";
@@ -7,6 +7,9 @@ import Footer from "@/Components/Footer";
 
 import { housesData } from "@/data";
 import { BiArea, BiBed, BiBath } from "react-icons/bi";
+import { RiWhatsappLine } from "react-icons/ri";
+import { FaShower } from "react-icons/fa";
+import { Inertia } from "@inertiajs/inertia";
 
 const PropertyDetails = ({ id }) => {
     // get the house based on the id
@@ -14,7 +17,42 @@ const PropertyDetails = ({ id }) => {
         return house.id === parseInt(id);
     });
 
-    console.log(house);
+    const { errors } = usePage().props;
+
+    const customerName = useRef();
+    const customerEmail = useRef();
+    const customerPhone = useRef();
+    const customerMessage = useRef();
+
+    const handleChange = () => {
+        // console.log(customerName);
+        console.log(customerName.current.value);
+        console.log(customerEmail.current.value);
+        console.log(customerPhone.current.value);
+        console.log(customerMessage.current.value);
+
+        // const customerName = customerName.current.value;
+        // const customerEmail = customerEmail.current.value;
+        // const customerPhone = customerPhone.current.value;
+        // const customerMessage = customerMessage.current.value;
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (
+            (customerName.current.value === "") &
+            (customerPhone.current.value === "")
+        ) {
+            return;
+        }
+        Inertia.post("/property/booking/", {
+            customerName: customerName.current.value,
+            customerEmail: customerEmail.current.value,
+            customerPhone: customerPhone.current.value,
+            customerMessage: customerMessage.current.value,
+        });
+    };
+
     return (
         <>
             <div className="max-w-[1440px] mx-auto bg-white">
@@ -32,15 +70,18 @@ const PropertyDetails = ({ id }) => {
                                 </h3>
                             </div>
                             <div className="mb-4 lg:mn-0 flex gap-x-2">
-                                <div className="bg-green-500 text-white px-3 rounded-full">
+                                <div className="bg-adondoGreen-50 text-white px-3 rounded-full">
                                     {house.type}
                                 </div>
-                                <div className="bg-violet-500 text-white px-3 rounded-full">
+                                <div className="bg-adondoGray text-white px-3 rounded-full">
                                     {house.country}
                                 </div>
                             </div>
                             <div className="text-3xl font-semibold text-violet-600">
-                                R {house.price}
+                                <div>R {house.price}</div>
+                                <div className="text-xs text-center text-gray-400 font-normal -mt-1">
+                                    {house.duration}
+                                </div>
                             </div>
                         </div>
                         <div className="flex flex-col items-start gap-8 lg:flex-row">
@@ -48,14 +89,14 @@ const PropertyDetails = ({ id }) => {
                                 <div className="mb-8">
                                     <img src={house.imageLg} alt="" />
                                 </div>
-                                <div className="flex gap-x-6 text-violet-700 mb-6">
+                                <div className="flex gap-x-6 text-adondoGreen-50 mb-6">
                                     <div className="flex gap-x-2 items-center ">
                                         <BiBed className="text-2xl" />
                                         <div>{house.bedrooms}</div>
                                     </div>
                                     <div className="flex gap-x-2 items-center ">
-                                        <BiBath className="text-2xl" />
-                                        <div>{house.bathrooms}</div>
+                                        <FaShower className="text-2xl" />
+                                        <div>{house.shower}</div>
                                     </div>
                                     <div className="flex gap-x-2 items-center ">
                                         <BiArea className="text-2xl" />
@@ -74,32 +115,68 @@ const PropertyDetails = ({ id }) => {
                                     </div>
                                 </div>
                                 {/* Contact form  */}
-                                <form className="flex flex-col gap-y-4">
+                                <form
+                                    className="flex flex-col gap-y-4"
+                                    onSubmit={handleSubmit}
+                                >
                                     <input
-                                        className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm"
+                                        className="border border-gray-300 focus:border-adondoGreen-50 outline-none rounded w-full px-4 h-14 text-sm"
                                         type="text"
                                         placeholder="Name*"
+                                        ref={customerName}
+                                        onChange={handleChange}
+                                        required
                                     />
+                                    {errors.customerName && (
+                                        <div className="text-xs text-red-600">
+                                            {errors.customerName}
+                                        </div>
+                                    )}
                                     <input
-                                        className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm"
+                                        className="border border-gray-300 focus:border-adondoGreen-50 outline-none rounded w-full px-4 h-14 text-sm"
                                         type="text"
                                         placeholder="Email"
+                                        ref={customerEmail}
+                                        onChange={handleChange}
                                     />
+                                    {errors.customerEmail && (
+                                        <div className="text-xs text-red-600 -mt-4">
+                                            {errors.customerEmail}
+                                        </div>
+                                    )}
                                     <input
-                                        className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm"
+                                        className="border border-gray-300 focus:border-adondoGreen-50 outline-none rounded w-full px-4 h-14 text-sm"
                                         type="text"
                                         placeholder="Phone*"
+                                        ref={customerPhone}
+                                        onChange={handleChange}
+                                        required
                                     />
+                                    {errors.customerPhone && (
+                                        <div className="text-xs text-red-600 -mt-4">
+                                            {errors.customerPhone}
+                                        </div>
+                                    )}
                                     <textarea
-                                        className="border border-gray-300 focus:border-violet-700 outline-none resize-none rounded w-full px-4 h-36 text-sm text-gray-400"
+                                        className="border border-gray-300 focus:border-adondoGreen-50 outline-none resize-none rounded w-full px-4 h-36 text-sm text-gray-400"
                                         placeholder="Message*"
                                         defaultValue="Hi, I am interested in the Duplex room"
+                                        ref={customerMessage}
+                                        onChange={handleChange}
                                     ></textarea>
+                                    {errors.customerMessage && (
+                                        <div className="text-xs text-red-600 -mt-4">
+                                            {errors.customerMessage}
+                                        </div>
+                                    )}
                                     <div className="flex gap-2">
-                                        <button className="bg-violet-700 hover:bg-violet-800 text-white rounded p-4 text-sm w-full transition">
+                                        <button
+                                            type="submit"
+                                            className="bg-adondoGreen-50 hover:bg-adondoGreen-100 text-white rounded p-4 text-sm w-full transition"
+                                        >
                                             Send message
                                         </button>
-                                        <button className="border border-violet-700 text-violet-700 hover:border-violet-500 hover:text-violet-500 rounded p-4 text-sm w-full transition">
+                                        <button className="border border-adondoGreen-50 text-adondoGreen-50 hover:border-adondoGreen-100 hover:text-adondoGreen-100 rounded p-4 text-sm w-full transition">
                                             Call
                                         </button>
                                     </div>
