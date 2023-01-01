@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SinglePageDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,12 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+// Route::get('/property/details', function (){
+//     return Inertia::render('PropertyDetails');
+// });
+Route::get('/property/details/', [SinglePageDetailsController::class,'show'])->name('pageDetails.show');
+Route::post('/property/booking/', [SinglePageDetailsController::class,'store'])->name('pageDetails.store');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
