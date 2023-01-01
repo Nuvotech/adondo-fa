@@ -1,23 +1,20 @@
 <x-mail::message>
-# Introduction
+# Booking for {{ $booking_data['roomName'] }} at  {{ $booking_data['roomCountry'] }}
 
 
-<div>
 
-    {{ $booking_data['customerName'] }}
-</div>
-<div>
+  **Customer Name:** {{ $booking_data['customerName'] }}; <br />
+  **Customer Email:** {{ $booking_data['customerEmail'] }}; <br />
+  **Customer Phone:** {{ $booking_data['customerPhone'] }}; <br />
+  **Room Price:** R{{ $booking_data['roomPrice'] }} per night; <br />
 
-    {{ $booking_data['customerEmail'] }}
-</div>
-<div>
-    {{ $booking_data['customerPhone'] }}
+  <br />
 
-</div>
-<div>
+    {{ $booking_data['customerMessage'] }};
 
-    {{ $booking_data['customerMessage'] }}
-</div>
+
+<br />
+<br />
 
 {{-- <x-mail::button :url="''">
 Button Text

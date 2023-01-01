@@ -39,10 +39,10 @@ const PropertyDetails = ({ id }) => {
             return;
         }
         Inertia.post("/property/booking/", {
-            customerName: roomName.current.value,
-            customerName: roomType.current.value,
-            customerName: roomCountry.current.value,
-            customerName: roomPrice.current.value,
+            roomName: roomName.current.value,
+            roomType: roomType.current.value,
+            roomCountry: roomCountry.current.value,
+            roomPrice: roomPrice.current.value,
             customerName: customerName.current.value,
             customerEmail: customerEmail.current.value,
             customerPhone: customerPhone.current.value,

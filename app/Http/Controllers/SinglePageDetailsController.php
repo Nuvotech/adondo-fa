@@ -25,7 +25,10 @@ class SinglePageDetailsController extends Controller
 
         ]);
 
-        // dd($data);
+        $data['roomName'] = $request->roomName;
+        $data['roomType'] = $request->roomType;
+        $data['roomCountry'] = $request->roomCountry;
+        $data['roomPrice'] = $request->roomPrice;
 
         Mail::to('booking@adondo-fa.com')->send(new BookingEnquiries($data));
 
