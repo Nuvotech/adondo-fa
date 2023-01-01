@@ -23,15 +23,15 @@ const PropertyDropdown = () => {
                 <RiHome5Line className="dropdown-icon-primary" />
                 <div>
                     <div className="text-[15px] font-medium leading-tight">
-                        {property} ..
+                        {property}
                     </div>
                     <div className="text-[13px]">Select you property</div>
-                    {isOpen ? (
-                        <RiArrowDownSLine className="dropdown-icon-primary" />
-                    ) : (
-                        <RiArrowUpSLine className="dropdown-icon-secondary" />
-                    )}
                 </div>
+                {isOpen ? (
+                    <RiArrowUpSLine className="dropdown-icon-secondary" />
+                ) : (
+                    <RiArrowDownSLine className="dropdown-icon-primary ml-auto" />
+                )}
             </Menu.Button>
             <Menu.Items className="dropdown-menu">
                 {properties.map((property, index) => {

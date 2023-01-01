@@ -21,17 +21,17 @@ const CountryDropdown = () => {
                 className="dropdown-btn w-full text-left"
             >
                 <RiMapPinLine className="dropdown-icon-primary" />
-                <div className="">
+                <div>
                     <div className="text-[15px] font-medium leading-tight">
-                        {country} ..
+                        {country}
                     </div>
                     <div className="text-[13px]">Select your place</div>
-                    {isOpen ? (
-                        <RiArrowUpSLine className="dropdown-icon-secondary" />
-                    ) : (
-                        <RiArrowDownSLine className="dropdown-icon-primary" />
-                    )}
                 </div>
+                {isOpen ? (
+                    <RiArrowUpSLine className="dropdown-icon-secondary" />
+                ) : (
+                    <RiArrowDownSLine className="dropdown-icon-primary ml-auto" />
+                )}
             </Menu.Button>
             <Menu.Items className="dropdown-menu">
                 {countries.map((country, index) => {

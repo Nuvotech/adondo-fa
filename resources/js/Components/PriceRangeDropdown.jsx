@@ -18,11 +18,13 @@ const PriceRangeDropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
     const prices = [
         { value: "Price range (any)" },
-        { value: "R 2500 - R 3000" },
-        { value: "R 3000 - R 3500" },
-        { value: "R 3500 - R 4000" },
-        { value: "R 1500 - R 2000" },
-        { value: "R 2000 - R 2500" },
+        { value: "R 250 - R 350" },
+        { value: "R 350 - R 450" },
+        { value: "R 450 - R 550" },
+        { value: "R 550 - R 650" },
+        { value: "R 650 - R 750" },
+        { value: "R 750 - R 850" },
+        { value: "R 850 - R 1000" },
     ];
     return (
         <Menu as="div" className="dropdown relative">
@@ -35,15 +37,15 @@ const PriceRangeDropdown = () => {
                 <RiWallet3Line className="dropdown-icon-primary" />
                 <div className="">
                     <div className="text-[15px] font-medium leading-tight">
-                        {price} ..
+                        {price}
                     </div>
                     <div className="text-[13px]">Select your place</div>
-                    {isOpen ? (
-                        <RiArrowUpSLine className="dropdown-icon-secondary" />
-                    ) : (
-                        <RiArrowDownSLine className="dropdown-icon-primary" />
-                    )}
                 </div>
+                {isOpen ? (
+                    <RiArrowUpSLine className="dropdown-icon-secondary" />
+                ) : (
+                    <RiArrowDownSLine className="dropdown-icon-primary ml-auto" />
+                )}
             </Menu.Button>
             <Menu.Items className="dropdown-menu">
                 {prices.map((price, index) => {

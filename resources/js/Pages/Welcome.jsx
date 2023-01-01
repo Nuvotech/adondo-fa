@@ -16,7 +16,6 @@ export default function Welcome(props) {
                 <Head title="Welcome" />
                 <Header />
                 <Home />
-                {/* <PropertyDetails /> */}
                 <Footer />
             </div>
         </>
