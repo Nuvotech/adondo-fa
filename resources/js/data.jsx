@@ -20,47 +20,25 @@ import House12 from "../../public/assets/img/houses/house12.png";
 import Room1Lg from "../../public/assets/img/houses/room1lg.png";
 import Room2Lg from "../../public/assets/img/houses/room2lg.png";
 import Room3Lg from "../../public/assets/img/houses/room3lg.png";
-import House1Lg from "../../public/assets/img/houses/house1lg.png";
-import House2Lg from "../../public/assets/img/houses/house2lg.png";
-import House3Lg from "../../public/assets/img/houses/house3lg.png";
 import House4Lg from "../../public/assets/img/houses/house4lg.png";
 import House5Lg from "../../public/assets/img/houses/house5lg.png";
 import House6Lg from "../../public/assets/img/houses/house6lg.png";
 import House7Lg from "../../public/assets/img/houses/house7lg.png";
 import House8Lg from "../../public/assets/img/houses/house8lg.png";
 import House9Lg from "../../public/assets/img/houses/house9lg.png";
-import House10Lg from "../../public/assets/img/houses/house10lg.png";
-import House11Lg from "../../public/assets/img/houses/house11lg.png";
-import House12Lg from "../../public/assets/img/houses/house12lg.png";
 
 // import apartments images
 import Apartment1 from "../../public/assets/img/apartments/a1.png";
 import Apartment2 from "../../public/assets/img/apartments/a2.png";
 import Apartment3 from "../../public/assets/img/apartments/a3.png";
-import Apartment4 from "../../public/assets/img/apartments/a4.png";
-import Apartment5 from "../../public/assets/img/apartments/a5.png";
-import Apartment6 from "../../public/assets/img/apartments/a6.png";
 // import apartments large images
 import Apartment1Lg from "../../public/assets/img/apartments/a1lg.png";
 import Apartment2Lg from "../../public/assets/img/apartments/a2lg.png";
 import Apartment3Lg from "../../public/assets/img/apartments/a3lg.png";
-import Apartment4Lg from "../../public/assets/img/apartments/a4lg.png";
-import Apartment5Lg from "../../public/assets/img/apartments/a5lg.png";
-import Apartment6Lg from "../../public/assets/img/apartments/a6lg.png";
 
 // import agents images
 import Agent1 from "../../public/assets/img/agents/agent1.png";
 import Agent2 from "../../public/assets/img/agents/agent2.png";
-import Agent3 from "../../public/assets/img/agents/agent3.png";
-import Agent4 from "../../public/assets/img/agents/agent4.png";
-import Agent5 from "../../public/assets/img/agents/agent5.png";
-import Agent6 from "../../public/assets/img/agents/agent6.png";
-import Agent7 from "../../public/assets/img/agents/agent7.png";
-import Agent8 from "../../public/assets/img/agents/agent8.png";
-import Agent9 from "../../public/assets/img/agents/agent9.png";
-import Agent10 from "../../public/assets/img/agents/agent10.png";
-import Agent11 from "../../public/assets/img/agents/agent11.png";
-import Agent12 from "../../public/assets/img/agents/agent12.png";
 
 export const housesData = [
     {
@@ -82,9 +60,9 @@ export const housesData = [
         duration: "per night",
         price: "390",
         agent: {
-            image: Agent1,
-            name: "Ester Ivan",
-            phone: "0123 456 78910",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
         },
         booked: false,
     },
@@ -107,9 +85,9 @@ export const housesData = [
         duration: "per night",
         price: "390",
         agent: {
-            image: Agent1,
-            name: "Ester Ivan",
-            phone: "0123 456 78910",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
         },
         booked: false,
     },
@@ -133,9 +111,9 @@ export const housesData = [
         duration: "per night",
         price: "390",
         agent: {
-            image: Agent1,
-            name: "Ester Ivan",
-            phone: "0123 456 78910",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -160,9 +138,9 @@ export const housesData = [
         duration: "per night",
         price: "550",
         agent: {
-            image: Agent4,
-            name: "Ester Ivan",
-            phone: "0123 456 78910",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -187,9 +165,9 @@ export const housesData = [
         duration: "per night",
         price: "450",
         agent: {
-            image: Agent5,
-            name: "Ester Ivan",
-            phone: "0123 456 78910",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -214,9 +192,9 @@ export const housesData = [
         duration: "per night",
         price: "650",
         agent: {
-            image: Agent6,
-            name: "Ester Ivan",
-            phone: "0123 456 78910",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -241,9 +219,9 @@ export const housesData = [
         duration: "per night",
         price: "390",
         agent: {
-            image: Agent7,
-            name: "Ester Ivan",
-            phone: "0123 456 78910",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -268,10 +246,9 @@ export const housesData = [
         duration: "per night",
         price: "390",
         agent: {
-            image: Agent8,
-            name: "Joseph Ramazani",
-            phone: "0123 456 78910",
-            whatsApp: "078 2455 785",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
         },
         booked: true,
     },
@@ -295,10 +272,9 @@ export const housesData = [
         duration: "per night",
         price: "1200",
         agent: {
-            image: Agent9,
+            image: Agent2,
             name: "Fatuma",
-            phone: "0123 456 78910",
-            whatsApp: "078 2455 785",
+            phone: "072 42 2600",
         },
         booked: true,
     },
@@ -322,9 +298,9 @@ export const housesData = [
         duration: "per night",
         price: "620",
         agent: {
-            image: Agent10,
-            name: "Fatu",
-            phone: "0123 456 78910",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
         },
         booked: true,
     },
@@ -348,9 +324,9 @@ export const housesData = [
         duration: "per night",
         price: "620",
         agent: {
-            image: Agent11,
+            image: Agent2,
             name: "Fatuma",
-            phone: "0123 456 78910",
+            phone: "072 42 2600",
         },
         booked: true,
     },
@@ -372,9 +348,9 @@ export const housesData = [
         duration: "per night",
         price: "320",
         agent: {
-            image: Agent12,
-            name: "Raymond Hood",
-            phone: "0123 456 78910",
+            image: Agent2,
+            name: "Fatuma",
+            phone: "072 42 2600",
         },
         booked: true,
     },

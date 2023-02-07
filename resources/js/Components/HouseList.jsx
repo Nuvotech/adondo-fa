@@ -29,6 +29,7 @@ const HouseList = () => {
                     {houses.map((house, index) => {
                         return house.booked ? (
                             <House
+                                key={index}
                                 house={house}
                                 className="cursor-not-allowed"
                             ></House>

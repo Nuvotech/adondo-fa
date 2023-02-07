@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Head, usePage } from "@inertiajs/inertia-react";
+import { Head, usePage, useForm } from "@inertiajs/inertia-react";
 
 // import components
 import Header from "@/Components/Header";
@@ -16,6 +16,8 @@ const PropertyDetails = ({ id }) => {
     const house = housesData.find((house) => {
         return house.id === parseInt(id);
     });
+
+    const { processing } = useForm();
 
     const { errors } = usePage().props;
 
@@ -40,18 +42,37 @@ const PropertyDetails = ({ id }) => {
         ) {
             return;
         }
-        Inertia.post("/property/booking/", {
-            roomName: roomName.current.value,
-            roomType: roomType.current.value,
-            roomArea: roomArea.current.value,
-            roomPrice: roomPrice.current.value,
-            customerName: customerName.current.value,
-            customerEmail: customerEmail.current.value,
-            customerPhone: customerPhone.current.value,
-            customerCheckinDate: checkInDate.current.value,
-            customerCheckOutDate: checkOutDate.current.value,
-            customerMessage: customerMessage.current.value,
-        });
+        const clearForm = () => {
+            customerName.current.value = "";
+            customerEmail.current.value = "";
+            customerPhone.current.value = "";
+            customerMessage.current.value = "";
+            checkInDate.current.value = "";
+            checkOutDate.current.value = "";
+        };
+        Inertia.post(
+            "/property/booking/",
+            {
+                roomName: roomName.current.value,
+                roomType: roomType.current.value,
+                roomArea: roomArea.current.value,
+                roomPrice: roomPrice.current.value,
+                customerName: customerName.current.value,
+                customerEmail: customerEmail.current.value,
+                customerPhone: customerPhone.current.value,
+                customerCheckInDate: checkInDate.current.value,
+                customerCheckOutDate: checkOutDate.current.value,
+                customerMessage: customerMessage.current.value,
+            },
+            {
+                onSuccess: clearForm(),
+            }
+        );
+
+        // const clearForm = () => {
+        //     (customerName.current.value = ""),
+        //         (customerPhone.current.value = "");
+        // };
     };
 
     const descriptions = house.description.split("|");
@@ -130,6 +151,9 @@ const PropertyDetails = ({ id }) => {
                                     </div>
                                     <div className="font-bold text-lg">
                                         {house.agent.name}
+                                        <span className="text-xs text-gray-600 block font-normal">
+                                            {house.agent.phone}
+                                        </span>
                                     </div>
                                 </div>
                                 {/* Contact form  */}
@@ -214,7 +238,7 @@ const PropertyDetails = ({ id }) => {
                                         </div>
                                         {errors.customerCheckinDate && (
                                             <div className="text-xs text-red-600 -mt-4">
-                                                {errors.customerCheckinDate}
+                                                {errors.customerCheckInDate}
                                             </div>
                                         )}
 
@@ -236,14 +260,13 @@ const PropertyDetails = ({ id }) => {
                                         </div>
                                         {errors.customerCheckoutDate && (
                                             <div className="text-xs text-red-600 -mt-4">
-                                                {errors.customerCheckoutDate}
+                                                {errors.customerCheckOutDate}
                                             </div>
                                         )}
                                     </div>
                                     <textarea
                                         className="border border-gray-300 focus:border-adondoGreen-50 outline-none resize-none rounded w-full px-4 h-36 text-sm text-gray-400"
                                         placeholder="Message*"
-                                        defaultValue="Hi, I am interested in the Duplex room"
                                         ref={customerMessage}
                                         onChange={handleChange}
                                     ></textarea>
@@ -259,7 +282,11 @@ const PropertyDetails = ({ id }) => {
                                         >
                                             Send message
                                         </button>
-                                        <button className="border border-adondoGreen-50 text-adondoGreen-50 hover:border-adondoGreen-100 hover:text-adondoGreen-100 rounded p-4 text-sm w-full transition">
+                                        <button
+                                            type="submit"
+                                            disabled={processing}
+                                            className="border border-adondoGreen-50 text-adondoGreen-50 hover:border-adondoGreen-100 hover:text-adondoGreen-100 rounded p-4 text-sm w-full transition"
+                                        >
                                             Call
                                         </button>
                                     </div>

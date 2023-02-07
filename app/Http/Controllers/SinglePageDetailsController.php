@@ -33,8 +33,6 @@ class SinglePageDetailsController extends Controller
         $data['roomArea'] = $request->roomaArea;
         $data['roomPrice'] = $request->roomPrice;
 
-      dd($data);
-
 
         Mail::to('booking@adondo-fa.com')->send(new BookingEnquiries($data));
 
