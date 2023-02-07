@@ -29,8 +29,9 @@ Route::get('/', function () {
 // Route::get('/property/details', function (){
 //     return Inertia::render('PropertyDetails');
 // });
+
 Route::get('/property/details/', [SinglePageDetailsController::class,'show'])->name('pageDetails.show');
-Route::post('/property/booking/', [SinglePageDetailsController::class,'store'])->name('pageDetails.store');
+Route::post('/property/booking/', [SinglePageDetailsController::class,'store'])->name('details.store');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

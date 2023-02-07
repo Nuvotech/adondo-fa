@@ -21,12 +21,14 @@ const PropertyDetails = ({ id }) => {
 
     const roomName = useRef();
     const roomType = useRef();
-    const roomCountry = useRef();
+    const roomArea = useRef();
     const roomPrice = useRef();
     const customerName = useRef();
     const customerEmail = useRef();
     const customerPhone = useRef();
     const customerMessage = useRef();
+    const checkInDate = useRef();
+    const checkOutDate = useRef();
 
     const handleChange = () => {};
 
@@ -41,15 +43,18 @@ const PropertyDetails = ({ id }) => {
         Inertia.post("/property/booking/", {
             roomName: roomName.current.value,
             roomType: roomType.current.value,
-            roomCountry: roomCountry.current.value,
+            roomArea: roomArea.current.value,
             roomPrice: roomPrice.current.value,
             customerName: customerName.current.value,
             customerEmail: customerEmail.current.value,
             customerPhone: customerPhone.current.value,
+            customerCheckinDate: checkInDate.current.value,
+            customerCheckOutDate: checkOutDate.current.value,
             customerMessage: customerMessage.current.value,
         });
     };
 
+    const descriptions = house.description.split("|");
     return (
         <>
             <div className="max-w-[1440px] mx-auto bg-white">
@@ -71,7 +76,7 @@ const PropertyDetails = ({ id }) => {
                                     {house.type}
                                 </div>
                                 <div className="bg-adondoGray text-white px-3 rounded-full">
-                                    {house.country}
+                                    {house.area}
                                 </div>
                             </div>
                             <div className="text-3xl font-semibold text-violet-600">
@@ -83,7 +88,15 @@ const PropertyDetails = ({ id }) => {
                         </div>
                         <div className="flex flex-col items-start gap-8 lg:flex-row">
                             <div className="max-w-[768px]">
-                                <div className="mb-8">
+                                <div className="relative mb-8">
+                                    {house.booked ? (
+                                        <div className="absolute bg-adondoGreen-50 text-white p-3 w-36 text-center">
+                                            Booked
+                                        </div>
+                                    ) : (
+                                        ""
+                                    )}
+
                                     <img src={house.imageLg} alt="" />
                                 </div>
                                 <div className="flex gap-x-6 text-adondoGreen-50 mb-6">
@@ -97,10 +110,18 @@ const PropertyDetails = ({ id }) => {
                                     </div>
                                     <div className="flex gap-x-2 items-center ">
                                         <BiArea className="text-2xl" />
-                                        <div>{house.surface}</div>
+                                        <div>
+                                            {house.surface}m<sup>2</sup>
+                                        </div>
                                     </div>
                                 </div>
-                                <div>{house.description}</div>
+                                <div className="text-sm">
+                                    {descriptions.map((description, index) => (
+                                        <div className="py-3" key={index}>
+                                            {description}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                             <div className="flex-1 bg-white w-full mb-8 border border-gray-300 rounded-lg px-6 py-8">
                                 <div className="flex items-center gap-x-4 mb-8">
@@ -128,8 +149,8 @@ const PropertyDetails = ({ id }) => {
                                     />
                                     <input
                                         type="hidden"
-                                        value={house.country}
-                                        ref={roomCountry}
+                                        value={house.area}
+                                        ref={roomArea}
                                     />
                                     <input
                                         type="hidden"
@@ -163,9 +184,9 @@ const PropertyDetails = ({ id }) => {
                                     )}
                                     <input
                                         className="border border-gray-300 focus:border-adondoGreen-50 outline-none rounded w-full px-4 h-14 text-sm"
-                                        type="text"
-                                        placeholder="Phone*"
+                                        type="number"
                                         ref={customerPhone}
+                                        placeholder="072 981 1358"
                                         onChange={handleChange}
                                         required
                                     />
@@ -174,6 +195,51 @@ const PropertyDetails = ({ id }) => {
                                             {errors.customerPhone}
                                         </div>
                                     )}
+                                    <div className="flex justify-between gap-2">
+                                        <div>
+                                            <label
+                                                htmlFor="check-in-dat"
+                                                className="text-xs text-gray-500"
+                                            >
+                                                Enter Chenck-in date
+                                            </label>
+                                            <input
+                                                className="border border-gray-300 focus:border-adondoGreen-50 outline-none rounded w-full px-4 h-14 text-sm"
+                                                type="date"
+                                                ref={checkInDate}
+                                                onChange={handleChange}
+                                                required
+                                                name="check-in-dat"
+                                            />
+                                        </div>
+                                        {errors.customerCheckinDate && (
+                                            <div className="text-xs text-red-600 -mt-4">
+                                                {errors.customerCheckinDate}
+                                            </div>
+                                        )}
+
+                                        <div>
+                                            <label
+                                                htmlFor="check-in-dat"
+                                                className="text-xs text-gray-500"
+                                            >
+                                                Enter Chenck-out date
+                                            </label>
+                                            <input
+                                                className="border border-gray-300 focus:border-adondoGreen-50 outline-none rounded w-full px-4 h-14 text-sm"
+                                                type="date"
+                                                placeholder="Phone*"
+                                                ref={checkOutDate}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        {errors.customerCheckoutDate && (
+                                            <div className="text-xs text-red-600 -mt-4">
+                                                {errors.customerCheckoutDate}
+                                            </div>
+                                        )}
+                                    </div>
                                     <textarea
                                         className="border border-gray-300 focus:border-adondoGreen-50 outline-none resize-none rounded w-full px-4 h-36 text-sm text-gray-400"
                                         placeholder="Message*"

@@ -9,8 +9,8 @@ import { Menu } from "@headlessui/react";
 // import house context
 import { HouseContext } from "./HouseContext";
 
-const CountryDropdown = () => {
-    const { country, setCountry, countries } = useContext(HouseContext);
+const AreaDropdown = () => {
+    const { area, setArea, countries } = useContext(HouseContext);
     const [isOpen, setIsOpen] = useState(false);
     return (
         <Menu as="div" className="dropdown relative">
@@ -23,26 +23,26 @@ const CountryDropdown = () => {
                 <RiMapPinLine className="dropdown-icon-primary" />
                 <div>
                     <div className="text-[15px] font-medium leading-tight">
-                        {country}
+                        {area}
                     </div>
-                    <div className="text-[13px]">Select your place</div>
+                    <div className="text-[13px]">Select an Area</div>
                 </div>
                 {isOpen ? (
-                    <RiArrowUpSLine className="dropdown-icon-secondary" />
-                ) : (
                     <RiArrowDownSLine className="dropdown-icon-primary ml-auto" />
+                ) : (
+                    <RiArrowUpSLine className="dropdown-icon-secondary" />
                 )}
             </Menu.Button>
             <Menu.Items className="dropdown-menu">
-                {countries.map((country, index) => {
+                {countries.map((area, index) => {
                     return (
                         <Menu.Item
-                            onClick={() => setCountry(country)}
+                            onClick={() => setArea(area)}
                             className="cursor-pointer hover:text-violet-700 "
                             as="li"
                             key={index}
                         >
-                            {country}
+                            {area}
                         </Menu.Item>
                     );
                 })}
@@ -51,4 +51,4 @@ const CountryDropdown = () => {
     );
 };
 
-export default CountryDropdown;
+export default AreaDropdown;
