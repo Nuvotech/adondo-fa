@@ -27,7 +27,13 @@ const HouseList = () => {
             <div className="container mx-auto">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-14">
                     {houses.map((house, index) => {
-                        return (
+                        return house.booked ? (
+                            <House
+                                key={index}
+                                house={house}
+                                className="cursor-not-allowed"
+                            ></House>
+                        ) : (
                             <Link
                                 href="/property/details"
                                 data={{ id: house.id }}
