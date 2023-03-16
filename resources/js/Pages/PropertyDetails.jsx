@@ -355,13 +355,13 @@ const PropertyDetails = ({ id }) => {
                                             >
                                                 Send message
                                             </button>
-                                            <button
+                                            {/* <button
                                                 type="submit"
                                                 disabled={processing}
                                                 className="border border-adondoGreen-50 text-adondoGreen-50 hover:border-adondoGreen-100 hover:text-adondoGreen-100 rounded p-4 text-sm w-full transition"
                                             >
                                                 Call
-                                            </button>
+                                            </button> */}
                                         </div>
                                     </form>
                                 )}
