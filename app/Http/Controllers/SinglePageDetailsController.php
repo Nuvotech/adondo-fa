@@ -36,6 +36,6 @@ class SinglePageDetailsController extends Controller
 
         Mail::to('booking@adondo-fa.com')->send(new BookingEnquiries($data));
 
-        return response()->json('Your booking has been successfully submitted', 201);
+        return back()->with('success', 'Thank you for contact Adondo FA, your booking will be processed with lightning speed.  📆');
     }
 }

@@ -25,7 +25,6 @@ const HouseContextProvider = ({ children }) => {
 
         //set countries
         setCountries(uniqueCountries);
-        // console.log(uniqueCountries);
     }, []);
 
     useEffect(() => {
@@ -38,7 +37,6 @@ const HouseContextProvider = ({ children }) => {
 
         //set Properties
         setProperties(uniqueProperties);
-        // console.log(uniqueProperties);
     }, []);
 
     const handleClick = () => {
@@ -53,11 +51,9 @@ const HouseContextProvider = ({ children }) => {
         // get the first value of price and convert it to a number
         const minPrice = parseInt(price.split(" ")[1]);
         const maxPrice = parseInt(price.split(" ")[4]);
-        // console.log(minPrice, maxPrice);
 
         const newHouses = housesData.filter((house) => {
             const housePrice = parseInt(house.price);
-            // console.log(housePrice);
             if (
                 house.areas === area &&
                 house.type === property &&
@@ -114,7 +110,6 @@ const HouseContextProvider = ({ children }) => {
                 setLoading(false)
             );
         }, 1000);
-        // console.log(newHouses);
         // return newHouses;
     };
 
