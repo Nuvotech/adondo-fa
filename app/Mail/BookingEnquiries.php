@@ -35,7 +35,7 @@ class BookingEnquiries extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address('booking@adondo-fa.com', 'Ester'),
+            from: new Address('bookings@adondo-fa.co.za', 'Fatu'),
             subject: 'Booking Enquiries',
         );
     }
