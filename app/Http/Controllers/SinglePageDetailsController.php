@@ -34,8 +34,8 @@ class SinglePageDetailsController extends Controller
         $data['roomPrice'] = $request->roomPrice;
 
 
-        Mail::to('booking@adondo-fa.com')->send(new BookingEnquiries($data));
+        Mail::to('bookings@adondo-fa.co.za')->send(new BookingEnquiries($data));
 
-        return back()->with('success', 'Thank you for contact Adondo FA, your booking will be processed with lightning speed.  📆');
+        return back()->with('success', 'Thank you for contacting Adondo FA, your booking will be processed with lightning speed.  📆');
     }
 }
