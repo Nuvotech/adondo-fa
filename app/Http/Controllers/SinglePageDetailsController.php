@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BookingConfirmation;
 use App\Mail\BookingEnquiries;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
@@ -33,8 +34,8 @@ class SinglePageDetailsController extends Controller
         $data['roomArea'] = $request->roomaArea;
         $data['roomPrice'] = $request->roomPrice;
 
-
         Mail::to('bookings@adondo-fa.co.za')->send(new BookingEnquiries($data));
+        Mail::to($data['customerEmail'])->send(new BookingConfirmation($data));
 
         return back()->with('success', 'Thank you for contacting Adondo FA, your booking will be processed with lightning speed.  📆');
     }

@@ -3,17 +3,15 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Address;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Queue\SerializesModels;
 
-class BookingEnquiries extends Mailable
+class BookingConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
-    // public $customer_name;
     public $bookingData;
 
     /**
@@ -34,8 +32,7 @@ class BookingEnquiries extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address('bookings@adondo-fa.co.za', 'Fatu'),
-            subject: 'Booking Enquiries',
+            subject: 'Booking Confirmation',
         );
     }
 
@@ -47,8 +44,7 @@ class BookingEnquiries extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'emails.bookings.booking-request',
-            // with: ['customer_name' => $this->customer_name],
+            markdown: 'emails.bookings.booking-confirmation',
             with: ['booking_data' => $this->bookingData],
         );
     }
