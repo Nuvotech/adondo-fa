@@ -61,7 +61,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
         },
         booked: false,
     },
@@ -96,7 +96,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
         },
         booked: false,
     },
@@ -132,7 +132,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -169,7 +169,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -206,7 +206,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -243,7 +243,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -280,7 +280,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
             whatsApp: "078 2455 785",
         },
         booked: true,
@@ -317,7 +317,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
         },
         booked: true,
     },
@@ -353,7 +353,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
         },
         booked: true,
     },
@@ -389,7 +389,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
         },
         booked: true,
     },
@@ -425,7 +425,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
         },
         booked: true,
     },
@@ -459,7 +459,7 @@ export const housesData = [
         agent: {
             image: Agent2,
             name: "Fatuma",
-            phone: "072 42 2600",
+            phone: "072 402 2600",
         },
         booked: true,
     },

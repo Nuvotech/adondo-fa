@@ -7,6 +7,7 @@ import { createInertiaApp } from "@inertiajs/inertia-react";
 import { InertiaProgress } from "@inertiajs/progress";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import HouseContextProvider from "@/Components/HouseContext";
+import NotificationBanner from "@/Components/NotificationBanner";
 
 const appName =
     window.document.getElementsByTagName("title")[0]?.innerText || "Adondo-fa";
@@ -23,6 +24,7 @@ createInertiaApp({
 
         root.render(
             <HouseContextProvider>
+                <NotificationBanner />
                 <App {...props} />
             </HouseContextProvider>
         );
