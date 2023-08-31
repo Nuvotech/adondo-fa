@@ -108,30 +108,7 @@ const PropertyDetails = ({ id }) => {
                                 <div className="relative mb-8">
                                     <img src={previeImage} alt="" />
                                 </div>
-                                <div className="flex gap-x-6 text-adondoGreen-50 mb-6">
-                                    <div className="flex gap-x-2 items-center ">
-                                        <BiBed className="text-2xl" />
-                                        <div>{house.bedrooms}</div>
-                                    </div>
-                                    <div className="flex gap-x-2 items-center ">
-                                        <FaShower className="text-2xl" />
-                                        <div>{house.shower}</div>
-                                    </div>
-                                    <div className="flex gap-x-2 items-center ">
-                                        <BiArea className="text-2xl" />
-                                        <div>
-                                            {house.surface}m<sup>2</sup>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="text-sm">
-                                    {descriptions.map((description, index) => (
-                                        <div className="py-3" key={index}>
-                                            {description}
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+                                <div className="grid grid-cols-2 sm:grid-cols-7 gap-3 my-4">
                                     <div className="h-full cursor-pointer">
                                         <img
                                             onClick={() => {
@@ -209,6 +186,107 @@ const PropertyDetails = ({ id }) => {
                                         />
                                     </div>
                                 </div>
+                                <div className="flex gap-x-6 text-adondoGreen-50 mb-6">
+                                    <div className="flex gap-x-2 items-center ">
+                                        <BiBed className="text-2xl" />
+                                        <div>{house.bedrooms}</div>
+                                    </div>
+                                    <div className="flex gap-x-2 items-center ">
+                                        <FaShower className="text-2xl" />
+                                        <div>{house.shower}</div>
+                                    </div>
+                                    <div className="flex gap-x-2 items-center ">
+                                        <BiArea className="text-2xl" />
+                                        <div>
+                                            {house.surface}m<sup>2</sup>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="text-sm">
+                                    {descriptions.map((description, index) => (
+                                        <div className="py-3" key={index}>
+                                            {description}
+                                        </div>
+                                    ))}
+                                </div>
+                                {/* <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+                                    <div className="h-full cursor-pointer">
+                                        <img
+                                            onClick={() => {
+                                                setPreviewIamge(house.imageLg);
+                                            }}
+                                            src={house.imageLg}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div className="h-full cursor-pointer">
+                                        <img
+                                            onClick={() => {
+                                                setPreviewIamge(
+                                                    house.moreImages.tv
+                                                );
+                                            }}
+                                            src={house.moreImages.tv}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div className="h-full cursor-pointer">
+                                        <img
+                                            onClick={() => {
+                                                setPreviewIamge(
+                                                    house.moreImages.toilet
+                                                );
+                                            }}
+                                            src={house.moreImages.toilet}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div className="h-full cursor-pointer">
+                                        <img
+                                            onClick={() => {
+                                                setPreviewIamge(
+                                                    house.moreImages.kitchen
+                                                );
+                                            }}
+                                            src={house.moreImages.kitchen}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div className="h-full cursor-pointer">
+                                        <img
+                                            onClick={() => {
+                                                setPreviewIamge(
+                                                    house.moreImages
+                                                        .seatingSpace
+                                                );
+                                            }}
+                                            src={house.moreImages.seatingSpace}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div className="h-full">
+                                        <img
+                                            onClick={() => {
+                                                setPreviewIamge(
+                                                    house.moreImages.stove
+                                                );
+                                            }}
+                                            src={house.moreImages.stove}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div className="h-full cursor-pointer">
+                                        <img
+                                            onClick={() => {
+                                                setPreviewIamge(
+                                                    house.moreImages.laundry
+                                                );
+                                            }}
+                                            src={house.moreImages.laundry}
+                                            alt=""
+                                        />
+                                    </div>
+                                </div> */}
                             </div>
                             <div className="flex-1 bg-white w-full mb-8 border border-gray-300 rounded-lg px-6 py-8">
                                 <div className="flex items-center gap-x-4 mb-8">
