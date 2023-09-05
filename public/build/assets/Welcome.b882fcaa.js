@@ -1,0 +1,1 @@
+import{a as e,F as o,j as r,H as a}from"./app.15e6d5a4.js";import{H as m,F as t}from"./Footer.8a1e5c7c.js";import s from"./Home.030253fd.js";import"./open-closed.8e26f2ec.js";import"./index.esm.c765700b.js";function x(i){return e(o,{children:r("div",{className:"max-w-[1440px] mx-auto bg-white",children:[e(a,{title:"Welcome"}),e(m,{}),e(s,{}),e(t,{})]})})}export{x as default};
