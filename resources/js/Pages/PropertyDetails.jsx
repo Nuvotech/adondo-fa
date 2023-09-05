@@ -108,7 +108,7 @@ const PropertyDetails = ({ id }) => {
                                 <div className="relative mb-8">
                                     <img src={previeImage} alt="" />
                                 </div>
-                                <div className="grid grid-cols-2 sm:grid-cols-7 gap-3 my-4">
+                                <div className="grid grid-cols-4 sm:grid-cols-7 gap-3 my-4">
                                     <div className="h-full cursor-pointer">
                                         <img
                                             onClick={() => {
